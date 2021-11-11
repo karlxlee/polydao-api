@@ -1,4 +1,5 @@
 // import data from "../../../../../dao.json";
+
 const sampleConfigData = [
   {
     id: 1,
@@ -43,10 +44,10 @@ const sampleConfigData = [
 ];
 
 function Votes(props) {
-  return JSON.stringify(sampleConfigData);
+  return <>{JSON.stringify({ dummy: "data" })}</>;
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ req, res }) {
   return { props: {} }; // it never reaches here but required as getInitialProps need to return object.
 }
 
