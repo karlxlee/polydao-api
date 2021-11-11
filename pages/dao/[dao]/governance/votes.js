@@ -43,8 +43,8 @@ const sampleConfigData = [
   },
 ];
 
-function Votes(props) {
-  return <>{JSON.stringify({ dummy: "data" })}</>;
+function Votes() {
+  return JSON.stringify({ dummy: "data" });
 }
 
 export async function getStaticProps({ req, res }) {
