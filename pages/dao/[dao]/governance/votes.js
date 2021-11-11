@@ -14,7 +14,7 @@ export async function getStaticProps({ params }) {
   console.log(endpoint);
   const res = await fetch(v1BaseUrl(endpoint)).then((r) => r.json());
   if (res.error) {
-    return { props: { error: res.error } };
+    return { props: { error: res.error_message } };
   } else {
     const lastUpdated = res.data.updated_at;
     const items = res.data.items;
