@@ -1,4 +1,4 @@
-import data from "../../../../dao.json";
+import data from "../../../../../dao.json";
 const sampleConfigData = [
   {
     id: 1,
