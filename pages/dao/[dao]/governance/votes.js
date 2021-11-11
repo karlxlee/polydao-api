@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
     const count = items.filter(function (i) {
       return i.decoded.name == "VoteCast";
     }).length;
-    return { props: { lastUpdated, items, count } };
+    return { props: { lastUpdated, items, count }, revalidate: 60 };
   }
 }
 
