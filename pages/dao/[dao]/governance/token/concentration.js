@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
       let entry = items[i];
       concentration.push([
         entry.address,
-        entry.balance / 10 ** entry.contract_decimals,
+        Math.round(entry.balance / 10 ** entry.contract_decimals),
       ]);
     }
     return { props: { lastUpdated, concentration }, revalidate: 60 };
