@@ -10,7 +10,6 @@ export async function getStaticProps({ params }) {
     "/1/events/address/" +
     config[params.dao]["governance"]["votes"] +
     "/?starting-block=12115107&ending-block=12240004";
-  console.log(endpoint);
   const res = await fetch(v1BaseUrl(endpoint)).then((r) => r.json());
   if (res.error) {
     return { props: { error: res.error_message } };

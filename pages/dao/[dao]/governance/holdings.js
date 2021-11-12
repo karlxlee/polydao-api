@@ -10,7 +10,6 @@ export async function getStaticProps({ params }) {
     "/1/address/" +
     config[params.dao]["governance"]["token"]["holdings"] +
     "/portfolio_v2/?";
-  console.log(endpoint);
   const res = await fetch(v1BaseUrl(endpoint)).then((r) => r.json());
   if (res.error) {
     return { props: { error: res.error_message } };
@@ -32,7 +31,7 @@ export async function getStaticProps({ params }) {
           entry.low.quote +
           entry.close.quote) /
         4;
-      holdings.push([entry.timestamp, average]);
+      holdings.push([Date.parse(entry.timestamp), average]);
     }
     return { props: { lastUpdated, holdings }, revalidate: 60 };
   }
