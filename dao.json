@@ -1,5 +1,16 @@
 {
   "compound": {
-    "governance": { "votes": "0xc0da01a04c3f3e0be433606045bb7017a7323e38" }
+    "governance": {
+      "votes": "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
+      "token": { "holdings": "0x2775b1c75658Be0F640272CCb8c72ac986009e38" }
+    }
+  },
+  "uniswap": {
+    "governance": {
+      "token": {
+        "contract": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+        "holdings": "0x1a9C8182C09F50C8318d769245beA52c32BE35BC"
+      }
+    }
   }
 }

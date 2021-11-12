@@ -1,12 +1,11 @@
 import config from "@/dao.json";
 import v1BaseUrl from "@/utils/v1BaseUrl";
 
-function Votes(props) {
+export default function Votes(props) {
   return JSON.stringify(props);
 }
 
 export async function getStaticProps({ params }) {
-  console.log();
   const endpoint =
     "/1/events/address/" +
     config[params.dao]["governance"]["votes"] +
@@ -31,5 +30,3 @@ export async function getStaticPaths() {
     fallback: true,
   };
 }
-
-export default Votes;
