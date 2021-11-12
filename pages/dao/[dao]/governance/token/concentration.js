@@ -14,8 +14,8 @@ export async function getStaticProps({ params }) {
   if (res.error) {
     return { props: { error: res.error_message } };
   } else {
-    const lastUpdated = res.updated_at;
-    const items = res.items;
+    const lastUpdated = res.data.updated_at;
+    const items = res.data.items;
     let concentration = [];
     for (let i in items) {
       let entry = items[i];
