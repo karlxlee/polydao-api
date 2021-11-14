@@ -9,7 +9,7 @@ export default function Votes(props) {
 export async function getStaticProps({ params }) {
   const endpoint =
     "/1/events/topics/" +
-    config[params.dao]["governance"]["votes"] +
+    config[params.dao]["governance"]["proposals"] +
     "/?ending-block=latest&sender-address=" +
     config[params.dao]["governance"]["module"];
   const res = await fetch(v1BaseUrl(endpoint)).then((r) => r.json());
