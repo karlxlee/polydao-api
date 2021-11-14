@@ -16,12 +16,26 @@ export async function getStaticProps({ params }) {
   } else {
     const lastUpdated = res.data.updated_at;
     const items = res.data.items;
-    let votes = [];
+    let votesTx = [];
+    let votesCount = {};
     for (let i in items) {
       let entry = items[i];
-      votes.push([Date.parse(entry.block_signed_at), entry.tx_hash]);
+      votesTx.push([Date.parse(entry.block_signed_at), entry.tx_hash]);
+
+      let dateString = new Date(entry.block_signed_at)
+        .toISOString()
+        .split("T")[0];
+      if (dateString in votesCount) {
+        votesCount[dateString] += 1;
+      } else {
+        votesCount[dateString] = 1;
+      }
     }
-    return { props: { lastUpdated, votes }, revalidate: 60 };
+    const votes = Object.keys(votesCount).map((key) => [
+      new Date(key).getTime(),
+      votesCount[key],
+    ]);
+    return { props: { lastUpdated, votes, votesTx }, revalidate: 60 };
   }
 }
 
