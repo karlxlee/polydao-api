@@ -7,19 +7,21 @@ export default function Votes(props) {
 
 export async function getStaticProps({ params }) {
   const endpoint =
-    "/1/events/address/" +
+    "/1/events/topics/" +
     config[params.dao]["governance"]["votes"] +
-    "/?starting-block=12115107&ending-block=12240004";
+    "/?ending-block=latest";
   const res = await fetch(v1BaseUrl(endpoint)).then((r) => r.json());
   if (res.error) {
     return { props: { error: res.error_message } };
   } else {
     const lastUpdated = res.data.updated_at;
     const items = res.data.items;
-    const count = items.filter(function (i) {
-      return i.decoded.name == "VoteCast";
-    }).length;
-    return { props: { lastUpdated, items, count }, revalidate: 60 };
+    let votes = [];
+    for (let i in items) {
+      let entry = items[i];
+      votes.push([Date.parse(entry.block_signed_at), entry.tx_hash]);
+    }
+    return { props: { lastUpdated, votes }, revalidate: 60 };
   }
 }
 

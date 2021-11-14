@@ -1,7 +1,7 @@
 {
   "compound": {
     "governance": {
-      "votes": "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
+      "votes": "0xb8e138887d0aa13bab447e82de9d5c1777041ecd21ca36ba824ff1e6c07ddda4",
       "token": {
         "contract": "0xc00e94cb662c3520282e6f5717214004a7f26888",
         "holdings": "0x2775b1c75658Be0F640272CCb8c72ac986009e38"
