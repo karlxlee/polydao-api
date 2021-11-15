@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
     for (let i in items) {
       let entry = items[i];
       let address = entry.decoded.params[0].value;
-      let balance = entry.decoded.params[2].value / 10 ** 18;
+      let balance = Math.round(entry.decoded.params[2].value / 10 ** 18);
       let ts = entry.block_signed_at;
       if (balances[address] && new Date(ts) > new Date(balances[address].ts)) {
         balances[address] = { ts: ts, power: balance };
