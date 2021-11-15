@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Polydao API
+
+## Implementation
+
+Polydao API uses:
+
+- Covalent data
+- Next.js dynamic routes
+- Next.js Incremental Static Regneration to continuously refetch the latest data
 
 ## Getting Started
 

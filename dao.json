@@ -4,6 +4,7 @@
       "module": "0xc0da02939e1441f497fd74f78ce7decb17b66529",
       "votes": "0xb8e138887d0aa13bab447e82de9d5c1777041ecd21ca36ba824ff1e6c07ddda4",
       "proposals": "0x7d84a6263ae0d98d3329bd7b46bb4e8d6f98cd35a7adb45c274c8b7fd5ebd5e0",
+      "delegations": "0xdec2bacdd2f05b59de34da9b523dff8be42e5e38e818c82fdb0bae774387a724",
       "token": {
         "contract": "0xc00e94cb662c3520282e6f5717214004a7f26888",
         "holdings": "0x2775b1c75658Be0F640272CCb8c72ac986009e38"
@@ -15,6 +16,7 @@
       "module": "0x408ED6354d4973f66138C91495F2f2FCbd8724C3",
       "votes": "0xb8e138887d0aa13bab447e82de9d5c1777041ecd21ca36ba824ff1e6c07ddda4",
       "proposals": "0x7d84a6263ae0d98d3329bd7b46bb4e8d6f98cd35a7adb45c274c8b7fd5ebd5e0",
+      "delegations": "0xdec2bacdd2f05b59de34da9b523dff8be42e5e38e818c82fdb0bae774387a724",
       "token": {
         "contract": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
         "holdings": "0x1a9C8182C09F50C8318d769245beA52c32BE35BC"
