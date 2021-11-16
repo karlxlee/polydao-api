@@ -16,6 +16,28 @@ export default async function countEventsDaily(items) {
     }
   }
 
+  let firstDate = Object.keys(counter)[0];
+  let lastDate = Object.keys(counter)[Object.keys(counter).length - 1];
+
+  let getDaysArray = function (start, end) {
+    for (
+      var arr = [], dt = new Date(start);
+      dt <= end;
+      dt.setDate(dt.getDate() + 1)
+    ) {
+      arr.push(new Date(dt));
+    }
+    return arr;
+  };
+  let dayList = getDaysArray(new Date(firstDate), new Date(lastDate));
+  for (let i in dayList) {
+    let dateString = dayList[i].toISOString().split("T")[0];
+    if (dateString in counter) {
+    } else {
+      counter[dateString] = 0;
+    }
+  }
+
   const count = Object.keys(counter).map((key) => [
     new Date(key).getTime(),
     counter[key],
