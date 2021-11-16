@@ -7,10 +7,27 @@ export default function Votes(props) {
 }
 
 export async function getStaticProps({ params }) {
+  let startingBlock;
+  const blockHeight = await fetch(
+    v1BaseUrl(
+      "/1/block_v2/" +
+        new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString() +
+        "/" +
+        new Date(Date.now()).toISOString() +
+        "/?"
+    )
+  ).then((r) => r.json());
+  if (blockHeight.error) {
+    return { props: { error: blockHeight.error_message } };
+  } else {
+    startingBlock = blockHeight.data.items[0].height;
+  }
   const endpoint =
     "/1/events/topics/" +
     config[params.dao]["governance"]["proposals"] +
-    "/?ending-block=latest&sender-address=" +
+    "/?starting-block=" +
+    startingBlock +
+    "&ending-block=latest&sender-address=" +
     config[params.dao]["governance"]["module"];
   const res = await fetch(v1BaseUrl(endpoint)).then((r) => r.json());
   if (res.error) {
