@@ -21,9 +21,21 @@ export async function getStaticProps({ params }) {
   } else {
     startingBlock = blockHeight.data.items[0].height;
   }
+  console.log(startingBlock);
+
+  let topic =
+    "topic" in config[params.dao]["governance"]["delegations"]
+      ? config[params.dao]["governance"]["delegations"]["topic"]
+      : config[params.dao]["governance"]["delegations"];
+
+  let index =
+    "index" in config[params.dao]["governance"]["delegations"]
+      ? config[params.dao]["governance"]["delegations"]["index"]
+      : 2;
+
   const endpoint =
     "/1/events/topics/" +
-    config[params.dao]["governance"]["delegations"] +
+    topic +
     "/?page-size=1000&starting-block=" +
     startingBlock +
     "&ending-block=latest&sender-address=" +
@@ -37,7 +49,7 @@ export async function getStaticProps({ params }) {
     for (let i in items) {
       let entry = items[i];
       let address = entry.decoded.params[0].value;
-      let balance = Math.round(entry.decoded.params[2].value / 10 ** 18);
+      let balance = Math.round(entry.decoded.params[index].value / 10 ** 18);
       let ts = entry.block_signed_at;
       if (balances[address] && new Date(ts) > new Date(balances[address].ts)) {
         balances[address] = { ts: ts, power: balance };

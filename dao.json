@@ -28,7 +28,10 @@
       "module": "0xEC568fffba86c094cf06b22134B23074DFE2252c",
       "votes": "0x0c611e7b6ae0de26f4772260e1bbdb5f58cbb7c275fe2de14671968d29add8d6",
       "proposals": "0xd272d67d2c8c66de43c1d2515abb064978a5020c173e15903b6a2ab3bf7440ec",
-      "delegations": "0xa0a19463ee116110c9b282012d9b65cc5522dc38a9520340cbaf3142e550127f",
+      "delegations": {
+        "topic": "0xa0a19463ee116110c9b282012d9b65cc5522dc38a9520340cbaf3142e550127f",
+        "index": 1
+      },
       "token": {
         "contract": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
         "holdings": "0x25F2226B597E8F9514B3F68F00f494cF4f286491"
