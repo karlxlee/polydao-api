@@ -21,17 +21,14 @@ export async function getStaticProps({ params }) {
   } else {
     startingBlock = blockHeight.data.items[0].height;
   }
-  console.log(startingBlock);
 
-  let topic =
-    "topic" in config[params.dao]["governance"]["delegations"]
-      ? config[params.dao]["governance"]["delegations"]["topic"]
-      : config[params.dao]["governance"]["delegations"];
+  let topic = config[params.dao]["governance"]["delegations"]["topic"]
+    ? config[params.dao]["governance"]["delegations"]["topic"]
+    : config[params.dao]["governance"]["delegations"];
 
-  let index =
-    "index" in config[params.dao]["governance"]["delegations"]
-      ? config[params.dao]["governance"]["delegations"]["index"]
-      : 2;
+  let index = config[params.dao]["governance"]["delegations"]["index"]
+    ? config[params.dao]["governance"]["delegations"]["index"]
+    : 2;
 
   const endpoint =
     "/1/events/topics/" +

@@ -15,6 +15,7 @@ export default async function countEventsDaily(items) {
       counter[dateString] = 1;
     }
   }
+
   const count = Object.keys(counter).map((key) => [
     new Date(key).getTime(),
     counter[key],
